@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-next-app@latest rawey-perfume --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm --no-turbopack)",
+      "Bash(npx create-next-app@latest rawey-perfume --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm --no-turbopack --no-react-compiler --no-agents)",
+      "Bash(rm -rf rawey-perfume)",
+      "Bash(npx create-next-app@latest rawey-perfume --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm --no-turbopack --react-compiler)",
+      "Bash(yes)",
+      "Bash(npm install:*)",
+      "Bash(npx shadcn@latest init -y -d)",
+      "Bash(npx shadcn@latest add button input card label select textarea badge separator scroll-area sheet dropdown-menu -y)",
+      "Bash(npm run:*)"
+    ]
+  }
+}
