@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams, useRouter, notFound } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { ChevronLeft, Heart, ShoppingBag, Star, Truck, RotateCcw, Shield } from 'lucide-react';
 import Link from 'next/link';
@@ -20,17 +20,10 @@ export default function ProductPage() {
   const [selectedSize, setSelectedSize] = useState(0);
   const [quantity, setQuantity] = useState(1);
 
+  // Early return for not found - triggers Next.js 404 page
   if (!product) {
-    return (
-      <div className="min-h-[60vh] flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-2xl mb-4">Product not found</h1>
-          <Link href="/shop" className="text-accent hover:underline">
-            Return to Shop
-          </Link>
-        </div>
-      </div>
-    );
+    notFound();
+    return null; // Never reached, but TypeScript needs it
   }
 
   const inWishlist = isInWishlist(product.id);
