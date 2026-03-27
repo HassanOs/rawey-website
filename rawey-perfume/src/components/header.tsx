@@ -30,7 +30,6 @@ useEffect(() => {
     return () => window.removeEventListener('scroll', handleScroll);
   }
 }, []);
-
   const navItems = [
     { href: '/', label: 'Home' },
     { href: '/shop', label: 'Shop' },
