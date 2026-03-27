@@ -16,11 +16,20 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll, { passive: true });
+useEffect(() => {
+  // هيدا الشرط هو الحماية: ما يشتغل الكود إلا بقلب المتصفح
+  if (typeof window !== 'undefined') {
+    const handleScroll = () => {
+      // الكود تبعك هون (مثلاً تغيير لون الهيدر)
+      console.log(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    // تنظيف الـ Listener لما نسكر الصفحة
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }
+}, []);
 
   const navItems = [
     { href: '/', label: 'Home' },
